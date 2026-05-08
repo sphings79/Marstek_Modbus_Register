@@ -1,0 +1,90 @@
+Register,Key/Name,Description,Type,Bytes,Scale,Unit,Source,raw_uint16,raw_int16,interpreted_value,Notes
+30001,battery_power,Battery power,int16/32,2,1,W,d,65525,-11,-11 W,
+30006,ac_power,AC power,int16/32,2,1,W,d,0,0,0 W,
+30020,mppt1_voltage,MPPT1 array voltage,uint16,2,0.1,V,d,99,99,9.9 V,
+30021,mppt2_voltage,MPPT2 array voltage,uint16,2,0.1,V,d,99,99,9.9 V,
+30022,mppt3_voltage,MPPT3 array voltage,uint16,2,0.1,V,d,99,99,9.9 V,
+30023,mppt4_voltage,MPPT4 array voltage,uint16,2,0.1,V,d,98,98,9.8 V,
+30024,mppt1_current,MPPT1 array current,uint16,2,0.1,A,d,0,0,0.0 A,
+30025,mppt2_current,MPPT2 array current,uint16,2,0.1,A,d,0,0,0.0 A,
+30026,mppt3_current,MPPT3 array current,uint16,2,0.1,A,d,0,0,0.0 A,
+30027,mppt4_current,MPPT4 array current,uint16,2,0.1,A,d,0,0,0.0 A,
+30037,mppt1_power,MPPT1 array power,uint16,2,0.1,W,d,0,0,0.0 W,
+30038,mppt2_power,MPPT2 array power,uint16,2,0.1,W,d,0,0,0.0 W,
+30039,mppt3_power,MPPT3 array power,uint16,2,0.1,W,d,0,0,0.0 W,
+30040,mppt4_power,MPPT4 array power,uint16,2,0.1,W,d,0,0,0.0 W,
+30100,battery_voltage,Battery voltage,uint16,2,0.01,V,d,5012,5012,50.12 V,
+30101,battery_current,Battery current,int16,2,0.1,A,d,0,0,0.0 A,
+30200,ems_version,EMS firmware version,uint16,2,1,-,d,147,147,147,Raw value; no direct scale to version string
+30202,vms_version,VMS firmware version,uint16,2,-,-,d,115,115,115,
+30204,bms_version,BMS firmware version,uint16,2,-,-,d,116,116,116,
+30300,wifi_status,WiFi connected (0/1),uint16,2,1,-,d,1,1,1 (connected),
+30301,bluetooth_status,Bluetooth connectivity/status,uint16,2,-,-,d,3,3,3,
+30302,cloud_status,Cloud connected (0/1),uint16,2,1,-,d,0,0,0 (disconnected),
+30303,wifi_signal_strength,WiFi RSSI,uint16,2,-1,dBm,d,50,50,-50 dBm,Scale -1 means negate raw value
+30304,mac_address,MAC address,char,12,-,-,d,13880,,"68:24:99:EE:F7:5C","Spans regs 30304-30309; each reg = 2 ASCII chars; 0x3638=68 0x3234=24 0x3939=99 0x4545=EE 0x4637=F7 0x3543=5C"
+30350,comm_module_firmware,Communication module firmware,char,12,-,-,d,12848,,"20240909_0159","Spans regs 30350-30355; decoded ASCII: 20 24 09 09 01 59 → likely fw date 2024-09-09 build 01:59"
+31000,device_name,Device name (string),char,20,-,-,d,22094,,"VNSD-0","Spans regs 31000-31009; decoded ASCII: VN SD -0 (regs 31003-31009 = 0x0000)"
+32105,battery_total_energy,Total stored energy,uint16,2,0.001,kWh,d,5120,5120,5.120 kWh,
+32200,ac_voltage,AC voltage,uint16,2,0.1,V,d,2398,2398,239.8 V,
+32204,ac_frequency,AC frequency,int16,2,0.1,Hz,d,499,499,49.9 Hz,
+32300,ac_offgrid_voltage,AC offgrid voltage,uint16,2,0.1,V,d,3,3,0.3 V,Near 0 → offgrid output off
+32301,ac_offgrid_current,AC offgrid current,uint16,2,0.01,A,d,3,3,0.03 A,Near 0 → offgrid output off
+32302,ac_offgrid_power,AC offgrid power,int32,4,1,W,d,0,0,0 W,Spans regs 32302-32303
+33000,total_charging_energy,Total charging energy,uint32,4,0.01,kWh,d,0,,"63.62 kWh","uint32=(reg33000<<16)|reg33001 = (0<<16)|6362 = 6362; ×0.01 = 63.62 kWh; reg33001=6362"
+33002,total_discharging_energy,Total discharging energy,int32,4,0.01,kWh,d,0,,0.00 kWh,Spans regs 33002-33003; both=0
+33004,total_daily_charging_energy,Total daily charging energy,uint32,4,0.01,kWh,d,0,,0.00 kWh,Spans regs 33004-33005; both=0
+33006,total_daily_discharging_energy,Total daily discharging energy,int32,4,0.01,kWh,d,0,,0.00 kWh,Spans regs 33006-33007; both=0
+33008,total_monthly_charging_energy,Total monthly charging energy,uint32,4,0.01,kWh,d,0,,0.00 kWh,Spans regs 33008-33009; both=0
+33010,total_monthly_discharging_energy,Total monthly discharging energy,int32,4,0.01,kWh,d,0,,0.00 kWh,Spans regs 33010-33011; both=0
+34002,battery_soc,State of charge,uint16,2,0.1,%,d,109,109,10.9 %,Scale 0.1 applied (not scale 1)
+34003,battery_cycle_count,Native cycle counter,uint16,2,1,-,d,14,14,14,
+34018,battery_1_cell_1_voltage,Battery pack 1 cell 1 voltage,int16,2,0.001,V,d,3116,3116,3.116 V,
+34019,battery_1_cell_2_voltage,Battery pack 1 cell 2 voltage,int16,2,0.001,V,d,3114,3114,3.114 V,
+34020,battery_1_cell_3_voltage,Battery pack 1 cell 3 voltage,int16,2,0.001,V,d,3113,3113,3.113 V,
+34021,battery_1_cell_4_voltage,Battery pack 1 cell 4 voltage,int16,2,0.001,V,d,3114,3114,3.114 V,
+34022,battery_1_cell_5_voltage,Battery pack 1 cell 5 voltage,int16,2,0.001,V,d,3113,3113,3.113 V,
+34023,battery_1_cell_6_voltage,Battery pack 1 cell 6 voltage,int16,2,0.001,V,d,3114,3114,3.114 V,
+34024,battery_1_cell_7_voltage,Battery pack 1 cell 7 voltage,int16,2,0.001,V,d,3114,3114,3.114 V,
+34025,battery_1_cell_8_voltage,Battery pack 1 cell 8 voltage,int16,2,0.001,V,d,3119,3119,3.119 V,
+34026,battery_1_cell_9_voltage,Battery pack 1 cell 9 voltage,int16,2,0.001,V,d,3112,3112,3.112 V,
+34027,battery_1_cell_10_voltage,Battery pack 1 cell 10 voltage,int16,2,0.001,V,d,3116,3116,3.116 V,
+34028,battery_1_cell_11_voltage,Battery pack 1 cell 11 voltage,int16,2,0.001,V,d,3112,3112,3.112 V,
+34029,battery_1_cell_12_voltage,Battery pack 1 cell 12 voltage,int16,2,0.001,V,d,3117,3117,3.117 V,
+34030,battery_1_cell_13_voltage,Battery pack 1 cell 13 voltage,int16,2,0.001,V,d,3112,3112,3.112 V,
+34031,battery_1_cell_14_voltage,Battery pack 1 cell 14 voltage (D has 16 cells),int16,2,0.001,V,d,3112,3112,3.112 V,Only in D/E_v3; A model ends at cell 13
+34032,battery_1_cell_15_voltage,Battery pack 1 cell 15 voltage (D has 16 cells),int16,2,0.001,V,d,3114,3114,3.114 V,Only in D/E_v3; A model ends at cell 13
+34033,battery_1_cell_16_voltage,Battery pack 1 cell 16 voltage (D has 16 cells),int16,2,0.001,V,d,3113,3113,3.113 V,Only in D/E_v3; A model ends at cell 13
+34100,battery_2_voltage (inferred),Battery pack 2 voltage (inferred: +100 block offset),uint16,2,0.01,V,d (inferred),5125,5125,51.25 V,"Not in README for D; inferred from mirrored block structure at +100; pack1 equiv=34000"
+34102,battery_2_soc (inferred),Battery pack 2 state of charge (inferred),uint16,2,0.1,%,d (inferred),120,120,12.0 %,"Not in README for D; inferred; pack1 equiv=34002"
+34103,battery_2_cycle_count (inferred),Battery pack 2 cycle count (inferred),uint16,2,1,-,d (inferred),13,13,13,"Not in README for D; inferred; pack1 equiv=34003"
+34105,battery_2_max_cell_voltage (inferred),Battery pack 2 max cell voltage (inferred),uint16,2,0.001,V,d (inferred),3205,3205,3.205 V,"Not in README for D; inferred; pack1 equiv=34005"
+34106,battery_2_min_cell_voltage (inferred),Battery pack 2 min cell voltage (inferred),uint16,2,0.001,V,d (inferred),3203,3203,3.203 V,"Not in README for D; inferred; pack1 equiv=34006"
+34110,battery_2_temperature (inferred),Battery pack 2 temperature (inferred),int16,2,0.1,°C,d (inferred),116,116,11.6 °C,"Not in README for D; inferred; pack1 equiv=34010"
+34111,battery_2_max_cell_temp (inferred),Battery pack 2 max cell temperature (inferred),int16,2,0.1,°C,d (inferred),235,235,23.5 °C,"Not in README for D; inferred; pack1 equiv=34011"
+34118,battery_2_cell_1_voltage (inferred),Battery pack 2 cell 1 voltage (inferred),int16,2,0.001,V,d (inferred),3204,3204,3.204 V,"Not in README for D; inferred; pack1 equiv=34018"
+34119,battery_2_cell_2_voltage (inferred),Battery pack 2 cell 2 voltage (inferred),int16,2,0.001,V,d (inferred),3203,3203,3.203 V,"Not in README for D; inferred; pack1 equiv=34019"
+34120,battery_2_cell_3_voltage (inferred),Battery pack 2 cell 3 voltage (inferred),int16,2,0.001,V,d (inferred),3204,3204,3.204 V,"Not in README for D; inferred; pack1 equiv=34020"
+34121,battery_2_cell_4_voltage (inferred),Battery pack 2 cell 4 voltage (inferred),int16,2,0.001,V,d (inferred),3204,3204,3.204 V,"Not in README for D; inferred; pack1 equiv=34021"
+34122,battery_2_cell_5_voltage (inferred),Battery pack 2 cell 5 voltage (inferred),int16,2,0.001,V,d (inferred),3204,3204,3.204 V,"Not in README for D; inferred; pack1 equiv=34022"
+34123,battery_2_cell_6_voltage (inferred),Battery pack 2 cell 6 voltage (inferred),int16,2,0.001,V,d (inferred),3204,3204,3.204 V,"Not in README for D; inferred; pack1 equiv=34023"
+34124,battery_2_cell_7_voltage (inferred),Battery pack 2 cell 7 voltage (inferred),int16,2,0.001,V,d (inferred),3204,3204,3.204 V,"Not in README for D; inferred; pack1 equiv=34024"
+34125,battery_2_cell_8_voltage (inferred),Battery pack 2 cell 8 voltage (inferred),int16,2,0.001,V,d (inferred),3204,3204,3.204 V,"Not in README for D; inferred; pack1 equiv=34025"
+34126,battery_2_cell_9_voltage (inferred),Battery pack 2 cell 9 voltage (inferred),int16,2,0.001,V,d (inferred),3203,3203,3.203 V,"Not in README for D; inferred; pack1 equiv=34026"
+34127,battery_2_cell_10_voltage (inferred),Battery pack 2 cell 10 voltage (inferred),int16,2,0.001,V,d (inferred),3204,3204,3.204 V,"Not in README for D; inferred; pack1 equiv=34027"
+34128,battery_2_cell_11_voltage (inferred),Battery pack 2 cell 11 voltage (inferred),int16,2,0.001,V,d (inferred),3204,3204,3.204 V,"Not in README for D; inferred; pack1 equiv=34028"
+34129,battery_2_cell_12_voltage (inferred),Battery pack 2 cell 12 voltage (inferred),int16,2,0.001,V,d (inferred),3204,3204,3.204 V,"Not in README for D; inferred; pack1 equiv=34029"
+34130,battery_2_cell_13_voltage (inferred),Battery pack 2 cell 13 voltage (inferred),int16,2,0.001,V,d (inferred),3203,3203,3.203 V,"Not in README for D; inferred; pack1 equiv=34030"
+34131,battery_2_cell_14_voltage (inferred),Battery pack 2 cell 14 voltage (inferred),int16,2,0.001,V,d (inferred),3205,3205,3.205 V,"Not in README for D; inferred; pack1 equiv=34031"
+34132,battery_2_cell_15_voltage (inferred),Battery pack 2 cell 15 voltage (inferred),int16,2,0.001,V,d (inferred),3204,3204,3.204 V,"Not in README for D; inferred; pack1 equiv=34032"
+34133,battery_2_cell_16_voltage (inferred),Battery pack 2 cell 16 voltage (inferred),int16,2,0.001,V,d (inferred),3203,3203,3.203 V,"Not in README for D; inferred; pack1 equiv=34033"
+35000,internal_temperature,Internal device temperature,int16,2,0.1,°C,d,300,300,30.0 °C,
+35001,internal_mos1_temperature,MOS1 internal temperature,int16,2,0.1,°C,d,313,313,31.3 °C,
+35002,internal_mos2_temperature,MOS2 internal temperature,int16,2,0.1,°C,d,312,312,31.2 °C,
+35010,max_cell_temperature,Max cell temperature,int16,2,0.1,°C,d,216,216,21.6 °C,
+35100,inverter_state,Inverter / device state,uint16,2,1,-,d,2,2,2,
+36000,alarm_status,Alarm status bits,uint32,4,-,-,e_v3 (d empty),0,,0,"Spans regs 36000-36001; uint32=(0<<16)|0=0; no active alarms"
+36100,fault_status,Fault status bits,uint64,8,-,-,e_v3 (d empty),0,,2388,"Spans regs 36100-36103; uint64=(0<<48)|(0<<32)|(0<<16)|2388=2388 (0x0954); check fault bitmask in integration"
+37004,ac_current,AC current,int16,2,0.01,A,d,65038,-498,-4.98 A,Negative = feed-in / discharging direction
+37007,max_cell_voltage,Max cell voltage,uint16,2,0.001,V,d,3339,3339,3.339 V,
+37008,min_cell_voltage,Min cell voltage,uint16,2,0.001,V,d,3337,3337,3.337 V,
