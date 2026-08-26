@@ -277,3 +277,12 @@ If you own a Marstek Venus A, D, or E and have run similar scans, contributions 
 - Any confirmed register interpretations
 
 The more devices we cover, the better the register map becomes for everyone.
+
+---
+
+## ☕ Support
+
+These tools are built and maintained in my free time, and they stay free, open and cloud-free.
+If one of them saved you an afternoon, you can [buy me a coffee](https://buymeacoffee.com/sphings).
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-sphings-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000000)](https://buymeacoffee.com/sphings)
